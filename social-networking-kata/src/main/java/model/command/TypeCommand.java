@@ -1,4 +1,4 @@
-package domain.model.command;
+package model.command;
 
 public enum TypeCommand {
 	

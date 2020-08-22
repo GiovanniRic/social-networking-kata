@@ -1,11 +1,13 @@
 package service;
 
+import model.command.CommandWrapper;
+
 public interface Service {
 	
-	public void savePost(String Command);
+	public void savePost(CommandWrapper command);
 	
-	public void readUser(String user);
+	public void readUser(CommandWrapper command);
 	
-	public void wallOf(String user);
+	public void wallOf(CommandWrapper command);
 	
 }
