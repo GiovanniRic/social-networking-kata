@@ -1,7 +1,6 @@
-package presentation;
+package application;
 import java.util.Scanner;
 
-import model.command.CommandBuilder;
 import model.command.CommandWrapper;
 
 
@@ -16,7 +15,7 @@ public class SocialKataApplication {
 	
 	private static void manageInput(String input) {
 		SocialKataController controller = new SocialKataController();
-		CommandWrapper command = CommandBuilder.buildCommand(input);
+		CommandWrapper command = CommandWrapper.buildCommand(input);
 	}
 	
 	private static String readInput() {

@@ -2,9 +2,9 @@ package service;
 
 import model.command.CommandWrapper;
 
-public interface Service {
+public interface PostService {
 	
-	public void savePost(CommandWrapper command);
+	public void savePost(String username, String message);
 	
 	public void readUser(CommandWrapper command);
 	
