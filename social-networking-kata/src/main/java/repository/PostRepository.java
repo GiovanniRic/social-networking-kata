@@ -1,11 +1,12 @@
 package repository;
 
+import model.Post;
 import model.User;
 
 public interface PostRepository {
 	
-	public void savePost(String username, String post);
+	public void savePost(String username, Post post);
 	
-	public User readPostOf(String username);
+	public User readUser(String username);
 
 }

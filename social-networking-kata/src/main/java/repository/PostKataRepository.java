@@ -1,7 +1,6 @@
 package repository;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import model.Post;
@@ -11,29 +10,25 @@ import model.User;
 
 public class PostKataRepository implements PostRepository {
 	
-	private Persistence persistence;
+	private Persistence<Post> persistence;
 	
 	
 	public PostKataRepository() {
-		persistence = new PersistenceFile();
+		persistence = new PersistencePostFile();
 	}
 
 	@Override
-	public void savePost(String username, String post) {
-		persistence.savePost( username, post);
+	public void savePost(String username, Post post) {
+		persistence.save( username, post);
 		
 	}
 
 	@Override
-	public User readPostOf(String username) {
-		List<String> post = persistence.readPostOf(username);
+	public User readUser(String username) {
 		
-		List<Post> postModel = new ArrayList<>();
-		
+		List<Post> post = persistence.read(username);
 		User user = new User(username);
-		post.stream().forEach(p -> postModel.add(new Post(p, null)));
-		
-		user.setPost(postModel);
+		user.setPost(post);
 		
 		return user;
 

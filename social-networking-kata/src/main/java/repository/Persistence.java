@@ -2,10 +2,10 @@ package repository;
 
 import java.util.List;
 
-interface Persistence {
+interface Persistence<T> {
 	
-	public void savePost(String username, String post);
+	public void save(String user, T post);
 	
-	public List<String> readPostOf(String username);
+	public List<T> read(String user);
 
 }
