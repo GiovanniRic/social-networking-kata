@@ -1,15 +1,17 @@
 package repository;
 
-import java.io.File;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import model.Post;
 import model.User;
 
+
+
 public class PostKataRepository implements PostRepository {
 	
-	private Persistence<File> persistence;
+	private Persistence persistence;
 	
 	
 	public PostKataRepository() {

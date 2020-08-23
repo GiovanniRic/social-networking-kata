@@ -2,9 +2,7 @@ package repository;
 
 import java.util.List;
 
-interface Persistence<T> {
-	
-	public T getDataOf(String username);
+interface Persistence {
 	
 	public void savePost(String username, String post);
 	
