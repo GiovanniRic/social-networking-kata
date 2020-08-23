@@ -1,8 +1,6 @@
 package repository;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -13,24 +11,18 @@ import java.util.stream.Stream;
 import model.Post;
 import utils.DateHandler;
 
-class PersistencePostFile implements Persistence<Post> {
+class PersistencePostFile extends PersistenceKata implements Persistence<Post> {
+	
+	private final String DIRECTORY = "post/";
 
 	@Override
 	public void save(String username, Post post) {
 
-		File file = getFileOf(username);
+		File file = getFileOf(DIRECTORY, username);
 		String dataTime = DateHandler.getDateFormated(post.getTimestampPost());
-
-		try (FileWriter writer = new FileWriter(file, true)) {
-
-			String record = post.getMessage() + ", " + dataTime + "\n";
-			writer.write(record);
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String record = post.getMessage() + ", " + dataTime + "\n";
+		
+		write(file, record);
 
 	}
 
@@ -39,9 +31,10 @@ class PersistencePostFile implements Persistence<Post> {
 
 		List<Post> post = new ArrayList<>();
 
-		try (Stream<String> stream = Files.lines(Paths.get(user))) {
+		try (Stream<String> stream = Files.lines(Paths.get(BASE_DIRECTORY+DIRECTORY+user))) {
 			stream.map(s -> s.split(","))
-					.forEach(record -> post.add(new Post(record[0], DateHandler.getDateParsed(record[1]))));
+			.forEach(record -> 
+			 post.add(new Post(record[0], DateHandler.getDateParsed(record[1]))));
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -51,25 +44,6 @@ class PersistencePostFile implements Persistence<Post> {
 
 	}
 
-	private File getFileOf(String user) {
 
-		File file = new File(user);
-		if (file.exists()) {
-			return file;
-		} else {
-			createFile(file);
-			return file;
-		}
-
-	}
-
-	private static void createFile(File file) {
-
-		try {
-			file.createNewFile();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 
 }

@@ -16,24 +16,24 @@ public class PostKataRepositoryTest {
 	
 	private PostKataRepository repository;
 	
-	private final String message = "Post test";
+	private final String MESSAGE = "Post test";
 	private Post post;
-	private final String username  = "Bob";
+	private final String USERNAME  = "Bob_test";
 	private final String DATE = "2020-08-23 13:00:00";
 	
 	@Before
 	public void setup() {
 		repository = new PostKataRepository();
-		post = new Post(message, DateHandler.getDateParsed(DATE));
+		post = new Post(MESSAGE, DateHandler.getDateParsed(DATE));
 	}
 	
 	
 	@Test
 	public void testSavePost() {
 		
-		repository.savePost(username, post);
+		repository.savePost(USERNAME, post);
 		
-		User user = repository.readUser(username);
+		User user = repository.readUser(USERNAME);
 		
 		assertTrue(user.getPost().stream()
 				.map(post -> post.getMessage())
