@@ -42,10 +42,9 @@ public abstract class PersistenceKata {
 	private void createFile(String dir, File file) {
 
 		try {
-			String pathName = BASE_DIRECTORY + dir+ file.getName();
+			String pathName = BASE_DIRECTORY + dir + file.getName();
 	        Path path = Paths.get(pathName);
 	        Files.createDirectories(path.getParent());
-	        file.deleteOnExit();
 	  
 	            Files.createFile(path);
 		}  catch (FileAlreadyExistsException e) {

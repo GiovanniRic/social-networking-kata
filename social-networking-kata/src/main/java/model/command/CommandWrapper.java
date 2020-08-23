@@ -54,7 +54,7 @@ public class CommandWrapper {
 			String username = strings[0];
 			
 			if (strings.length > 1 && strings[1].equals("->")) {
-				String message = strings[1] + " " + strings[2];
+				String message = retrieveMessage(strings);
 				return new CommandWrapper(TypeCommand.POSTING, username, message);
 			}
 			
@@ -72,6 +72,17 @@ public class CommandWrapper {
 			}
 
 			return new CommandWrapper(TypeCommand.READING, username);
+		}
+		
+		private static String retrieveMessage(String[] strings) {
+			
+			StringBuilder message = new StringBuilder();
+			for (int i = 1; i < strings.length; i++) {
+				message.append(" "+ strings[i]);
+				
+			}
+			
+			return message.toString().trim();
 		}
 
 	}
