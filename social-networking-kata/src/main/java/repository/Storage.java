@@ -2,7 +2,7 @@ package repository;
 
 import java.util.List;
 
-interface Persistence<T> {
+interface Storage<T> {
 	
 	public void save(String user, T data);
 	

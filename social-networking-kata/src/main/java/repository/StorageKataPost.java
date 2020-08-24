@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import model.Post;
 import utils.DateHandler;
 
-class PersistencePostFile extends PersistenceKata implements Persistence<Post> {
+class StorageKataPost extends StorageSocialKata implements Storage<Post> {
 	
 	private final String DIRECTORY = "post/";
 

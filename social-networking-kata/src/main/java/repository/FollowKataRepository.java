@@ -4,10 +4,10 @@ import java.util.List;
 
 public class FollowKataRepository implements FollowRepository {
 	
-	private Persistence<String> persistence;
+	private Storage<String> persistence;
 	
 	 public FollowKataRepository() {
-		 persistence = new PersistenceFollowFile();
+		 persistence = new StorageKataFollow();
 	}
 
 	@Override

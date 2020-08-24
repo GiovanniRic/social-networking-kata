@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public abstract class PersistenceKata {
+public abstract class StorageSocialKata {
 	
 	protected static String BASE_DIRECTORY = "repository/";
 	

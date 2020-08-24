@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 
-public class PersistenceFollowFile extends PersistenceKata implements Persistence<String> {
+public class StorageKataFollow extends StorageSocialKata implements Storage<String> {
 	
 	private final String DIRECTORY = "follow/";
 
