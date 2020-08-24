@@ -11,8 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import model.Post;
-import model.PostView;
 import model.User;
+import model.view.PostView;
 import repository.PostKataRepository;
 
 public class PostKataServiceTest {

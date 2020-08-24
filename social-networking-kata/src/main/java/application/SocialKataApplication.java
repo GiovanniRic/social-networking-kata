@@ -3,9 +3,9 @@ package application;
 import java.util.List;
 import java.util.Scanner;
 
-import model.PostView;
 import model.command.CommandWrapper;
 import model.command.TypeCommand;
+import model.view.PostView;
 
 public class SocialKataApplication {
 

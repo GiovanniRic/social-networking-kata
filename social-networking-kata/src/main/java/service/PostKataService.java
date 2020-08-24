@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import model.Post;
-import model.PostView;
 import model.User;
+import model.view.PostView;
 import repository.PostKataRepository;
 import repository.PostRepository;
 import utils.DateHandler;
@@ -41,7 +41,8 @@ public class PostKataService implements PostService{
 		List<PostView> post = new ArrayList<>();
 		
 		readUser.getPost().stream().
-		map(p -> post.add(new PostView(readUser.getUsername(), p.getMessage())))
+		map(p -> post.add(
+			new PostView(readUser.getUsername(), p.getMessage(), DateHandler.getDateFormated(p.getTimestampPost()))))
 		.collect(Collectors.toList());
 		
 		return post;

@@ -2,7 +2,7 @@ package service;
 
 import java.util.List;
 
-import model.PostView;
+import model.view.PostView;
 
 public interface PostService {
 	

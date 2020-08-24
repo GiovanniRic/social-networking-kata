@@ -2,8 +2,8 @@ package application;
 
 import java.util.List;
 
-import model.PostView;
 import model.command.CommandWrapper;
+import model.view.PostView;
 import service.FollowKataService;
 import service.FollowService;
 import service.PostKataService;
