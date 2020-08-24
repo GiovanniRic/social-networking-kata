@@ -1,4 +1,4 @@
-package repository;
+package claranet.italia.repository;
 
 import static org.junit.Assert.assertTrue;
 
