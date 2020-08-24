@@ -10,20 +10,24 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.Post;
-import model.User;
-import model.view.PostView;
-import repository.PostKataRepository;
+import claranet.italia.social.networking.kata.model.Post;
+import claranet.italia.social.networking.kata.model.User;
+import claranet.italia.social.networking.kata.model.view.PostView;
+import claranet.italia.social.networking.kata.repository.PostKataRepository;
+import claranet.italia.social.networking.kata.service.PostKataService;
+import claranet.italia.social.networking.kata.service.PostService;
+import claranet.italia.social.networking.kata.utils.DateHandler;
 
 public class PostKataServiceTest {
 
-	private String USERNAME = "Bob_test";
-	private String MESSAGE = "test post";
+	private final String USERNAME = "Bob_test";
+	private final String MESSAGE = "test post";
+	private final String DATA_TIME = "2020-08-24 18:00:00";
+	
 	private List<Post> postList;
-
 	private PostKataRepository repository;
 	private PostService service;
-
+	
 	User user;
 
 	@Before
@@ -34,7 +38,7 @@ public class PostKataServiceTest {
 		service = new PostKataService(repository);
 		user = new User("Bob_test");
 		postList = new ArrayList<Post>();
-		postList.add(new Post(MESSAGE, null));
+		postList.add(new Post(MESSAGE, DateHandler.getDateParsed(DATA_TIME)));
 		user.setPost(postList);
 
 	}

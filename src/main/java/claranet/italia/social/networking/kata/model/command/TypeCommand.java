@@ -1,4 +1,4 @@
-package model.command;
+package claranet.italia.social.networking.kata.model.command;
 
 public enum TypeCommand {
 	

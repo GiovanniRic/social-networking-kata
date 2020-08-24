@@ -1,13 +1,13 @@
-package application;
+package claranet.italia.social.networking.kata.application;
 
 import java.util.List;
 
-import model.command.CommandWrapper;
-import model.view.PostView;
-import service.FollowKataService;
-import service.FollowService;
-import service.PostKataService;
-import service.PostService;
+import claranet.italia.social.networking.kata.model.command.CommandWrapper;
+import claranet.italia.social.networking.kata.model.view.PostView;
+import claranet.italia.social.networking.kata.service.FollowKataService;
+import claranet.italia.social.networking.kata.service.FollowService;
+import claranet.italia.social.networking.kata.service.PostKataService;
+import claranet.italia.social.networking.kata.service.PostService;
 
 public class SocialKataController {
 	

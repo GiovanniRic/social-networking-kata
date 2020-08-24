@@ -1,16 +1,16 @@
-package service;
+package claranet.italia.social.networking.kata.service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import model.Post;
-import model.User;
-import model.view.PostView;
-import repository.PostKataRepository;
-import repository.PostRepository;
-import utils.DateHandler;
+import claranet.italia.social.networking.kata.model.Post;
+import claranet.italia.social.networking.kata.model.User;
+import claranet.italia.social.networking.kata.model.view.PostView;
+import claranet.italia.social.networking.kata.repository.PostKataRepository;
+import claranet.italia.social.networking.kata.repository.PostRepository;
+import claranet.italia.social.networking.kata.utils.DateHandler;
 
 public class PostKataService implements PostService{
 	

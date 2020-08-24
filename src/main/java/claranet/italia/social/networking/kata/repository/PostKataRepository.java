@@ -1,9 +1,9 @@
-package repository;
+package claranet.italia.social.networking.kata.repository;
 
 import java.util.List;
 
-import model.Post;
-import model.User;
+import claranet.italia.social.networking.kata.model.Post;
+import claranet.italia.social.networking.kata.model.User;
 
 public class PostKataRepository implements PostRepository {
 

@@ -1,8 +1,8 @@
-package service;
+package claranet.italia.social.networking.kata.service;
 
 import java.util.List;
 
-import model.view.PostView;
+import claranet.italia.social.networking.kata.model.view.PostView;
 
 public interface PostService {
 	

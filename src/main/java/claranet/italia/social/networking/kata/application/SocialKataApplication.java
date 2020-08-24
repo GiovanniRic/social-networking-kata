@@ -1,11 +1,11 @@
-package application;
+package claranet.italia.social.networking.kata.application;
 
 import java.util.List;
 import java.util.Scanner;
 
-import model.command.CommandWrapper;
-import model.command.TypeCommand;
-import model.view.PostView;
+import claranet.italia.social.networking.kata.model.command.CommandWrapper;
+import claranet.italia.social.networking.kata.model.command.TypeCommand;
+import claranet.italia.social.networking.kata.model.view.PostView;
 
 public class SocialKataApplication {
 

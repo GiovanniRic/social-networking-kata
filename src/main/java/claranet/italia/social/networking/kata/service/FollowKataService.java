@@ -1,7 +1,7 @@
-package service;
+package claranet.italia.social.networking.kata.service;
 
-import repository.FollowKataRepository;
-import repository.FollowRepository;
+import claranet.italia.social.networking.kata.repository.FollowKataRepository;
+import claranet.italia.social.networking.kata.repository.FollowRepository;
 
 public class FollowKataService implements FollowService {
 	

@@ -1,4 +1,4 @@
-package repository;
+package claranet.italia.social.networking.kata.repository;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import model.Post;
-import utils.DateHandler;
+import claranet.italia.social.networking.kata.model.Post;
+import claranet.italia.social.networking.kata.utils.DateHandler;
 
 class StorageKataPost extends StorageSocialKata implements Storage<Post> {
 	

@@ -7,6 +7,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import claranet.italia.social.networking.kata.repository.FollowKataRepository;
+import claranet.italia.social.networking.kata.repository.FollowRepository;
+
 public class FollowKataRepositoryTest {
 	
 	private final String USER = "Tom_test";

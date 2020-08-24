@@ -1,4 +1,4 @@
-package utils;
+package claranet.italia.social.networking.kata.utils;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

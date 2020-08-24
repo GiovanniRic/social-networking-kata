@@ -1,4 +1,4 @@
-package service;
+package claranet.italia.social.networking.kata.service;
 
 public interface FollowService {
 	

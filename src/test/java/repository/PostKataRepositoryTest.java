@@ -7,9 +7,10 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import model.Post;
-import model.User;
-import utils.DateHandler;
+import claranet.italia.social.networking.kata.model.Post;
+import claranet.italia.social.networking.kata.model.User;
+import claranet.italia.social.networking.kata.repository.PostKataRepository;
+import claranet.italia.social.networking.kata.utils.DateHandler;
 
 
 public class PostKataRepositoryTest {

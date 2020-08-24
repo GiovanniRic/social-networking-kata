@@ -1,4 +1,4 @@
-package repository;
+package claranet.italia.social.networking.kata.repository;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package model;
+package claranet.italia.social.networking.kata.model;
 
 import java.util.ArrayList;
 import java.util.List;

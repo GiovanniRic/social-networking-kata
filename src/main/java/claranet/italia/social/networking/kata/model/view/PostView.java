@@ -1,4 +1,4 @@
-package model.view;
+package claranet.italia.social.networking.kata.model.view;
 
 public class PostView {
 	
