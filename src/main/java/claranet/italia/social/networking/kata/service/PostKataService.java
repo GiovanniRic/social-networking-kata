@@ -10,7 +10,7 @@ import claranet.italia.social.networking.kata.model.User;
 import claranet.italia.social.networking.kata.model.view.PostView;
 import claranet.italia.social.networking.kata.repository.PostKataRepository;
 import claranet.italia.social.networking.kata.repository.PostRepository;
-import claranet.italia.social.networking.kata.utils.DateHandler;
+import claranet.italia.social.networking.kata.utils.DateTimeHandler;
 
 public class PostKataService implements PostService{
 	
@@ -27,8 +27,8 @@ public class PostKataService implements PostService{
 	@Override
 	public void savePost(String username, String message) {
 		
-		String dataTime = DateHandler.getDateFormated(LocalDateTime.now());
-		Post post = new Post(message,DateHandler.getDateParsed(dataTime));
+		String dataTime = DateTimeHandler.getDateFormated(LocalDateTime.now());
+		Post post = new Post(message,DateTimeHandler.getDateParsed(dataTime));
 		
 		repository.savePost(username, post);
 		
@@ -42,7 +42,7 @@ public class PostKataService implements PostService{
 		
 		readUser.getPost().stream().
 		map(p -> post.add(
-			new PostView(readUser.getUsername(), p.getMessage(), DateHandler.getDateFormated(p.getTimestampPost()))))
+			new PostView(readUser.getUsername(), p.getMessage(), DateTimeHandler.getDateFormated(p.getTimestampPost()))))
 		.collect(Collectors.toList());
 		
 		return post;

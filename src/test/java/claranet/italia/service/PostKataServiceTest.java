@@ -16,13 +16,13 @@ import claranet.italia.social.networking.kata.model.view.PostView;
 import claranet.italia.social.networking.kata.repository.PostKataRepository;
 import claranet.italia.social.networking.kata.service.PostKataService;
 import claranet.italia.social.networking.kata.service.PostService;
-import claranet.italia.social.networking.kata.utils.DateHandler;
+import claranet.italia.social.networking.kata.utils.DateTimeHandler;
 
 public class PostKataServiceTest {
 
 	private final String USERNAME = "Bob_test";
 	private final String MESSAGE = "test post";
-	private final String DATA_TIME = "2020-08-24 18:00:00";
+	private final String DATA_TIME = "2020-08-18 18:00:00";
 	
 	private List<Post> postList;
 	private PostKataRepository repository;
@@ -38,7 +38,7 @@ public class PostKataServiceTest {
 		service = new PostKataService(repository);
 		user = new User("Bob_test");
 		postList = new ArrayList<Post>();
-		postList.add(new Post(MESSAGE, DateHandler.getDateParsed(DATA_TIME)));
+		postList.add(new Post(MESSAGE, DateTimeHandler.getDateParsed(DATA_TIME)));
 		user.setPost(postList);
 
 	}
@@ -49,7 +49,7 @@ public class PostKataServiceTest {
 
 		List<PostView> postView = service.getPostView(USERNAME);
 
-		String post = USERNAME + "->" + MESSAGE;
+		String post = USERNAME + "-> " + MESSAGE + " (1 week ago)";
 		assertTrue(postView.get(0).getPostView().equals(post));
 
 	}

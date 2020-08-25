@@ -10,7 +10,7 @@ import org.junit.Test;
 import claranet.italia.social.networking.kata.model.Post;
 import claranet.italia.social.networking.kata.model.User;
 import claranet.italia.social.networking.kata.repository.PostKataRepository;
-import claranet.italia.social.networking.kata.utils.DateHandler;
+import claranet.italia.social.networking.kata.utils.DateTimeHandler;
 
 
 public class PostKataRepositoryTest {
@@ -25,7 +25,7 @@ public class PostKataRepositoryTest {
 	@Before
 	public void setup() {
 		repository = new PostKataRepository();
-		post = new Post(MESSAGE, DateHandler.getDateParsed(DATE));
+		post = new Post(MESSAGE, DateTimeHandler.getDateParsed(DATE));
 	}
 	
 	
@@ -42,7 +42,7 @@ public class PostKataRepositoryTest {
 		
 		assertTrue(user.getPost().stream()
 				.map(post -> post.getTimestampPost())
-				.anyMatch( dataTime -> DateHandler.getDateFormated(dataTime).equals(DATE)));
+				.anyMatch( dataTime -> DateTimeHandler.getDateFormated(dataTime).equals(DATE)));
 		
 		
 		

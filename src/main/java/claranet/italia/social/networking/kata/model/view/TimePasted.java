@@ -1,19 +1,22 @@
 package claranet.italia.social.networking.kata.model.view;
 
 public class TimePasted {
-	
-	private TimeType timeType;
+
+	private TemporalType timeType;
 	private int value;
-	
-	public TimePasted(TimeType type, int value) {
+
+	public TimePasted(TemporalType type, int value) {
 		this.timeType = type;
 		this.value = value;
 	}
 
 	@Override
 	public String toString() {
-	 return String.valueOf(value) + timeType.getValue();
-	
+		if (value > 1) {
+			return String.valueOf(value) + " " + timeType.getValue() + "s";
+		} else {
+			return String.valueOf(value) + " " + timeType.getValue();
+		}
 	}
 
 }

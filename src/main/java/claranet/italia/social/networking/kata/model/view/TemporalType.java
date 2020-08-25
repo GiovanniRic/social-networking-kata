@@ -1,20 +1,21 @@
 package claranet.italia.social.networking.kata.model.view;
 
-public enum TimeType {
-	
+public enum TemporalType {
+
+	SECOND("second"),
+	MINUTE("minute"),
+	HOUR("hour"),
+	WEEK("week"),
 	DAY("day"),
-	DAYS("days"),
 	MONTH("month"),
-	MONTHS("months"),
-	YEAR("year"),
-	YEARS("years");
-	
+	YEAR("year");
+
 	private String value;
 
-	TimeType(String value) {
+	TemporalType(String value) {
 		this.value = value;
 	}
-	
+
 	public String getValue() {
 		return value;
 	}
