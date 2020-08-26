@@ -20,7 +20,15 @@ public class SocialKataApplication {
 		System.out.println();
 
 		while (true) {
+			
 			String input = readInput();
+			
+			if(input.equals("exit")) {
+				
+				System.out.println("Bye bye!!");
+				break;
+				
+			}
 			manageInput(input);
 		}
 	}
@@ -38,7 +46,9 @@ public class SocialKataApplication {
 			post.stream().forEach(p -> System.out.println(p.getPostView()));
 			
 		} else if (command.getType().equals(TypeCommand.FOLLOWING)) {
+			
 			controller.following(command);
+			
 		} else if(command.getType().equals(TypeCommand.WALL)){
 			
 			List<PostView> wall = controller.wall(command);
@@ -49,8 +59,7 @@ public class SocialKataApplication {
 	}
 
 	private static String readInput() {
-		return  new Scanner(System.in).nextLine();
-		
+		return  new Scanner(System.in).nextLine();	
 	}
 
 }

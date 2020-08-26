@@ -31,20 +31,20 @@ public class PostKataServiceTest {
 	private final String DATA_TIME_3 = "2020-08-14 19:00:00";
 	private final String DATA_TIME_4 = "2020-08-16 19:00:00";
 	private final String DATA_TIME_5 = "2020-08-20 17:00:00";
-	
+
 	private final String USERNAME_KEN = "Ken_test";
 	private final String USERNAME_TOM = "Tom_test";
 	private final String MESSAGE_KEN = "test messsate of Ken";
 	private final String MESSAGE_TOM = "test message of Tom";
-	
+
 	private List<Post> postList;
 	private List<Post> postList2;
 	private List<Post> postList3;
-	
+
 	private PostKataRepository repository;
 	private FollowKataService followService;
 	private PostService service;
-	
+
 	private User user;
 	private User user2;
 	private User user3;
@@ -56,23 +56,23 @@ public class PostKataServiceTest {
 		followService = mock(FollowKataService.class);
 
 		service = new PostKataService(repository, followService);
-		
+
 		postList = new ArrayList<Post>();
 		postList.add(new Post(MESSAGE_BOB, DateTimeHandler.getDateParsed(DATA_TIME)));
-		
+
 		user = new User(USERNAME_BOB);
 		user.setPost(postList);
-		
+
 		user2 = new User(USERNAME_KEN);
 		postList2 = new ArrayList<Post>();
 		postList2.add(new Post(MESSAGE_KEN, DateTimeHandler.getDateParsed(DATA_TIME_3)));
 		user2.setPost(postList2);
-		
+
 		user3 = new User(USERNAME_TOM);
 		postList3 = new ArrayList<Post>();
 		postList3.add(new Post(MESSAGE_TOM, DateTimeHandler.getDateParsed(DATA_TIME_4)));
 		user3.setPost(postList3);
-		
+
 	}
 
 	@Test
@@ -85,101 +85,94 @@ public class PostKataServiceTest {
 		assertTrue(postView.get(0).getPostView().equals(post));
 
 	}
-	
-	
+
 	@Test
 	public void getUserWithMultiplePostTest() {
-		
+
 		postList = new ArrayList<Post>();
 		postList.add(new Post(MESSAGE_BOB, DateTimeHandler.getDateParsed(DATA_TIME)));
 		postList.add(new Post(MESSAGE_BOB_2, DateTimeHandler.getDateParsed(DATA_TIME_2)));
-		
+
 		user.setPost(postList);
-		
+
 		when(repository.readUser(USERNAME_BOB)).thenReturn(user);
 
 		List<PostView> postView = service.getPostView(USERNAME_BOB);
 
 		List<PostView> postViewExpected = getPostViewMock();
-		
-		assertTrue(postView.get(0).getPostView()
-				.equals(postViewExpected.get(0).getPostView()));
-		
-		assertTrue(postView.get(1).getPostView()
-				.equals(postViewExpected.get(1).getPostView()));
-	
+
+		assertTrue(postView.get(0).getPostView().equals(postViewExpected.get(0).getPostView()));
+
+		assertTrue(postView.get(1).getPostView().equals(postViewExpected.get(1).getPostView()));
+
 	}
-	
-	
+
 	@Test
-	public void  wallTest() {
-		
+	public void wallTest() {
+
 		postList = new ArrayList<Post>();
 		postList.add(new Post(MESSAGE_BOB, DateTimeHandler.getDateParsed(DATA_TIME)));
 		postList.add(new Post(MESSAGE_BOB_2, DateTimeHandler.getDateParsed(DATA_TIME_5)));
 		user.setPost(postList);
-		
+
 		when(repository.readUser(USERNAME_BOB)).thenReturn(user);
 		when(repository.readUser(USERNAME_KEN)).thenReturn(user2);
 		when(repository.readUser(USERNAME_TOM)).thenReturn(user3);
-		
-		List<String> followsMock = getFollowMock(); 
+
+		List<String> followsMock = getFollowMock();
 		when(followService.getFollowFor(USERNAME_BOB)).thenReturn(followsMock);
-	
+
 		List<PostView> postView = service.wallOf(USERNAME_BOB);
-	
+
 		List<PostView> postViewExpected = getWallMock();
-		
+
 		assertTrue(postView.get(0).getPostView().equals(postViewExpected.get(0).getPostView()));
 		assertTrue(postView.get(1).getPostView().equals(postViewExpected.get(1).getPostView()));
-		assertTrue(postView.get(2).getPostView().equals(postViewExpected.get(2).getPostView()));	 
-		
+		assertTrue(postView.get(2).getPostView().equals(postViewExpected.get(2).getPostView()));
+
 	}
-	
-	private List<String> getFollowMock(){
+
+	private List<String> getFollowMock() {
 		String user1 = "Ken_test";
 		String user2 = "Tom_test";
-		
+
 		List<String> users = new ArrayList<>();
 		users.add(user1);
 		users.add(user2);
-		
+
 		return users;
-		
+
 	}
-	
-	private List<PostView> getWallMock(){
-		
+
+	private List<PostView> getWallMock() {
+
 		PostView post1 = new PostView(USERNAME_BOB, MESSAGE_BOB_2, DATA_TIME_5);
 		PostView post2 = new PostView(USERNAME_TOM, MESSAGE_TOM, DATA_TIME_4);
 		PostView post3 = new PostView(USERNAME_KEN, MESSAGE_KEN, DATA_TIME_3);
 		PostView post4 = new PostView(USERNAME_BOB, MESSAGE_BOB, DATA_TIME);
-		
+
 		List<PostView> post = new ArrayList<>();
-		
-		
+
 		post.add(post1);
 		post.add(post2);
 		post.add(post3);
 		post.add(post4);
-		
+
 		return post;
-		
+
 	}
-	
-	
-	
+
 	private List<PostView> getPostViewMock() {
-		
+
 		PostView post1 = new PostView(USERNAME_BOB, MESSAGE_BOB_2, DATA_TIME_2);
 		PostView post2 = new PostView(USERNAME_BOB, MESSAGE_BOB, DATA_TIME);
-		
+
 		List<PostView> post = new ArrayList<PostView>();
-		
+
 		post.add(post1);
 		post.add(post2);
-		
+
 		return post;
-		
+
 	}
 }

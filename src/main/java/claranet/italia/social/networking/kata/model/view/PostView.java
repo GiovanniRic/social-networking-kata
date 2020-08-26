@@ -4,8 +4,6 @@ import claranet.italia.social.networking.kata.utils.DateTimeHandler;
 
 public class PostView {
 	
-
-
 	private String username;
 	private String message;
 	private String dateTime;

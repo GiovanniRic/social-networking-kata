@@ -27,13 +27,12 @@ public class DateTimeHandler {
 		LocalDateTime datePast = getDateParsed(dateTime);
 		LocalDateTime dateNow = getDateParsed(getDateFormated(LocalDateTime.now()));
 
-		
 		return retrieveTimePasted(datePast, dateNow);
-		
+
 	}
-	
-	private static TimePasted retrieveTimePasted(LocalDateTime datePast,LocalDateTime dateNow ) {
-		
+
+	private static TimePasted retrieveTimePasted(LocalDateTime datePast, LocalDateTime dateNow) {
+
 		long value = datePast.until(dateNow, ChronoUnit.YEARS);
 		if (value > 0) {
 			return new TimePasted(TemporalType.YEAR, (int) value);
@@ -65,8 +64,8 @@ public class DateTimeHandler {
 		}
 
 		value = datePast.until(dateNow, ChronoUnit.SECONDS);
-		return new TimePasted(TemporalType.SECOND, (int) value);	
-		
+		return new TimePasted(TemporalType.SECOND, (int) value);
+
 	}
 
 }

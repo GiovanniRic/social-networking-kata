@@ -12,7 +12,7 @@ import claranet.italia.social.networking.kata.model.Post;
 import claranet.italia.social.networking.kata.utils.DateTimeHandler;
 
 class StorageKataPost extends StorageSocialKata implements Storage<Post> {
-	
+
 	private final String DIRECTORY = "post/";
 
 	@Override
@@ -21,7 +21,7 @@ class StorageKataPost extends StorageSocialKata implements Storage<Post> {
 		File file = getFileOf(DIRECTORY, username);
 		String dataTime = DateTimeHandler.getDateFormated(post.getTimestampPost());
 		String record = post.getMessage() + ", " + dataTime + "\n";
-		
+
 		write(file, record);
 
 	}
@@ -31,19 +31,15 @@ class StorageKataPost extends StorageSocialKata implements Storage<Post> {
 
 		List<Post> post = new ArrayList<>();
 
-		try (Stream<String> stream = Files.lines(Paths.get(BASE_DIRECTORY+DIRECTORY+user))) {
+		try (Stream<String> stream = Files.lines(Paths.get(BASE_DIRECTORY + DIRECTORY + user))) {
 			stream.map(s -> s.split(","))
-			.forEach(record -> 
-			 post.add(new Post(record[0], DateTimeHandler.getDateParsed(record[1]))));
+					.forEach(record -> post.add(new Post(record[0], DateTimeHandler.getDateParsed(record[1]))));
 
 		} catch (IOException e) {
-			e.printStackTrace();
 		}
 
 		return post;
 
 	}
-
-
 
 }
