@@ -8,9 +8,14 @@ import claranet.italia.social.networking.kata.model.command.TypeCommand;
 import claranet.italia.social.networking.kata.model.view.PostView;
 
 public class SocialKataApplication {
+	
+	private static SocialKataController controller;
+	
 
 	public static void main(String args[]) {
 
+		controller = new SocialKataController();
+		
 		System.out.println("Welcome on Social Networking Kata!");
 		System.out.println();
 
@@ -21,23 +26,26 @@ public class SocialKataApplication {
 	}
 
 	private static void manageInput(String input) {
-		SocialKataController controller = new SocialKataController();
+		
 		CommandWrapper command = CommandWrapper.buildCommand(input);
 
 		if (command.getType().equals(TypeCommand.POSTING)) {
-			controller.savePost(command);
+			controller.posting(command);
+			
 		} else if (command.getType().equals(TypeCommand.READING)) {
-			List<PostView> post = controller.readPost(command);
+			
+			List<PostView> post = controller.reading(command);
 			post.stream().forEach(p -> System.out.println(p.getPostView()));
+			
 		} else if (command.getType().equals(TypeCommand.FOLLOWING)) {
-			controller.saveFollowOf(command);
+			controller.following(command);
 		}
 
 	}
 
 	private static String readInput() {
-		Scanner input = new Scanner(System.in);
-		return input.nextLine();
+		return  new Scanner(System.in).nextLine();
+		
 	}
 
 }

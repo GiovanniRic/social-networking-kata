@@ -21,17 +21,17 @@ public class SocialKataController {
 		
 	}
 	
-	public void savePost(CommandWrapper command) {
+	public void posting(CommandWrapper command) {
 		servicePost.savePost(command.getUsername(), command.getMessage().replace("->", ""));
 		
 	}
 	
-	public List<PostView> readPost(CommandWrapper command){
+	public List<PostView> reading(CommandWrapper command){
 		return servicePost.getPostView(command.getUsername());
 		
 	}
 	
-	public void saveFollowOf(CommandWrapper command) {
+	public void following(CommandWrapper command) {
 		serviceFollow.saveFollow(command.getUsername(), command.getAnotherUser());
 		
 	}
