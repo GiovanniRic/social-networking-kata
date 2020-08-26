@@ -2,6 +2,7 @@ package claranet.italia.social.networking.kata.service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,13 +46,25 @@ public class PostKataService implements PostService{
 			new PostView(readUser.getUsername(), p.getMessage(), DateTimeHandler.getDateFormated(p.getTimestampPost()))))
 		.collect(Collectors.toList());
 		
-		return post;
+		return sortPostViewForDateTime(post);
 	}
+	
+	
+
 
 	@Override
 	public void wallOf(String username) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	
+	private List<PostView> sortPostViewForDateTime(List<PostView> post){
+		
+		Comparator<PostView> postViewComparator = (post1, post2) -> 
+		DateTimeHandler.getDateParsed(post2.getDateTime()).compareTo(DateTimeHandler.getDateParsed(post1.getDateTime()));
+		
+		return  post.stream().sorted(postViewComparator).collect(Collectors.toList());
 	}
 
 }

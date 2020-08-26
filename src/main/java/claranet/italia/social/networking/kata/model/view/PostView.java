@@ -4,10 +4,11 @@ import claranet.italia.social.networking.kata.utils.DateTimeHandler;
 
 public class PostView {
 	
+
+
 	private String username;
 	private String message;
 	private String dateTime;
-	private TimePasted timpePasted;
 	
 	public PostView(String username, String message, String dateTime) {
 		this.username = username;
@@ -21,5 +22,11 @@ public class PostView {
 				+ "("+DateTimeHandler.getTimeFrom(dateTime) +" ago)";
 		
 	}
+	
+	public String getDateTime() {
+		return dateTime;
+	}
+	
+	
 
 }
