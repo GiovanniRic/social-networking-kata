@@ -36,4 +36,8 @@ public class SocialKataController {
 		
 	}
 	
+	public List<PostView> wall(CommandWrapper command) {
+		return servicePost.wallOf(command.getUsername());
+	}
+	
 }

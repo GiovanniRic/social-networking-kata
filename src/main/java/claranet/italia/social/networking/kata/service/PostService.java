@@ -10,6 +10,6 @@ public interface PostService {
 	
 	public List<PostView> getPostView(String username);
 	
-	public void wallOf(String username);
+	public List<PostView> wallOf(String username);
 	
 }

@@ -39,6 +39,11 @@ public class SocialKataApplication {
 			
 		} else if (command.getType().equals(TypeCommand.FOLLOWING)) {
 			controller.following(command);
+		} else if(command.getType().equals(TypeCommand.WALL)){
+			
+			List<PostView> wall = controller.wall(command);
+			wall.stream().forEach(w -> System.out.println(w.getPostView()));
+			
 		}
 
 	}

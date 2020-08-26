@@ -13,16 +13,20 @@ import claranet.italia.social.networking.kata.repository.PostKataRepository;
 import claranet.italia.social.networking.kata.repository.PostRepository;
 import claranet.italia.social.networking.kata.utils.DateTimeHandler;
 
-public class PostKataService implements PostService{
+public class PostKataService implements PostService {
 	
 	private PostRepository repository;
 	
+	private FollowService followService;
+	
 	public PostKataService() {
 		repository = new PostKataRepository();
+		followService = new FollowKataService();
 	}
 	
-	public PostKataService(PostRepository repository) {
+	public PostKataService(PostRepository repository, FollowService followService) {
 		this.repository = repository;
+		this.followService = followService;
 	}
 
 	@Override
@@ -37,6 +41,7 @@ public class PostKataService implements PostService{
 
 	@Override
 	public List<PostView> getPostView(String username) {
+		
 		User readUser = repository.readUser(username);
 		
 		List<PostView> post = new ArrayList<>();
@@ -53,8 +58,20 @@ public class PostKataService implements PostService{
 
 
 	@Override
-	public void wallOf(String username) {
-		// TODO Auto-generated method stub
+	public List<PostView> wallOf(String username) {
+		
+		List<PostView> wall = new ArrayList<>();
+
+		wall.addAll(getPostView(username));
+		
+		List<String> followOfUsername = followService.getFollowFor(username);
+		
+		followOfUsername.stream().forEach(follow -> wall.addAll(getPostView(follow)));
+				
+		return sortPostViewForDateTime(wall);
+		
+		
+		
 		
 	}
 	
