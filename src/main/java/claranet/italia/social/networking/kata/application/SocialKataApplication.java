@@ -6,6 +6,8 @@ import java.util.Scanner;
 import claranet.italia.social.networking.kata.model.command.CommandWrapper;
 import claranet.italia.social.networking.kata.model.command.TypeCommand;
 import claranet.italia.social.networking.kata.model.view.PostView;
+import claranet.italia.social.networking.kata.service.FollowKataService;
+import claranet.italia.social.networking.kata.service.PostKataService;
 
 public class SocialKataApplication {
 	
@@ -14,7 +16,7 @@ public class SocialKataApplication {
 
 	public static void main(String args[]) {
 
-		controller = new SocialKataController();
+		controller = new SocialKataController(new PostKataService(), new FollowKataService());
 		
 		System.out.println("Welcome on Social Networking Kata!");
 		System.out.println();

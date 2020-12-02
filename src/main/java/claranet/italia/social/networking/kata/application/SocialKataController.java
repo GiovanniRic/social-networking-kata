@@ -15,9 +15,9 @@ public class SocialKataController {
 	private FollowService serviceFollow;
 	
 
-	public SocialKataController() {
-		servicePost = new PostKataService();
-		serviceFollow = new FollowKataService();
+	public SocialKataController(PostService servicePost, FollowService serviceFollow) {
+		this.servicePost =servicePost;
+		this.serviceFollow = serviceFollow;
 		
 	}
 	
