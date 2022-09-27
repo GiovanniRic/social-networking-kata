@@ -10,7 +10,7 @@ It's possible to do 3 actions:
 Examples
 
 Posting
-Users cab bepublish message:
+Users can be publish message:
 - Jack -> I'm happy today!        -- Command
 - Marie -> Boring the school!     -- Command
 - Jack -> I'm tired now.          -- Command
