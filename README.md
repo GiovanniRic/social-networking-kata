@@ -18,7 +18,7 @@ Users cab bepublish message:
 
 
 Reading
-User can be read message others user:
+User can be read message others users:
 - Jack -- Command
 
 -  I'm tired now. (3 minutes ago) --- Result
@@ -27,7 +27,7 @@ User can be read message others user:
 
 
 Following
-User cam be follow other users:
+User can be follow other users:
 - Marie follows Jack -- Command
 - Marie wall         -- Command
 
