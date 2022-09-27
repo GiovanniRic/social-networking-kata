@@ -10,6 +10,7 @@ It's possible to do 3 actions:
 Examples
 
 Posting
+
 Users can be publish message:
 - Jack -> I'm happy today!        -- Command
 - Marie -> Boring the school!     -- Command
@@ -18,6 +19,7 @@ Users can be publish message:
 
 
 Reading
+
 User can be read message others users:
 - Jack -- Command
 
@@ -26,7 +28,8 @@ User can be read message others users:
 
 
 
-Following
+Following (wall)
+
 User can be follow other users:
 - Marie follows Jack -- Command
 - Marie wall         -- Command
